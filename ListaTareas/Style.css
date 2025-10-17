@@ -1,5 +1,23 @@
 .texto{
-    background-color: crimson;
+    color: crimson;
     font-family: Helvetica;
     size: 50px;
+}
+
+.input{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #753e3e;
+    font-size: 16px;
+}
+
+.button{
+    background-color: crimson;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }

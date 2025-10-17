@@ -1,16 +1,32 @@
 const parrafo = document.getElementById("parrafo");
 const Guardar = document.getElementById("Guardar");
-const tarea = document.getElementById("tareas");
+const tareas = document.getElementById("tareas"); 
 
-function GuardarTarea(){
-    const tarea = tareas.value.trim();
-    if(tarea === ""){
-        parrafo.innerHTML = "<p>Ingresa una tarea, no es valio guardar nada</p>";
+const LOCAL_STORAGE_KEY = "miTareaGuardada";
+
+function GuardarTarea() {
+    const tareaTexto = tareas.value.trim();
+
+    if(tareaTexto === ""){
+        parrafo.innerHTML = "<p>  Ingresa una tarea, no es válido guardar nada</p>";
     }else{
-        parrafo.innerHTML = "<p>Tarea Guardada correctamente</p>";
-    }
+   
+        localStorage.setItem(LOCAL_STORAGE_KEY, tareaTexto);
 
+        parrafo.innerHTML = "<p>  Tarea Guardada correctamente</p>";
+      
+    }
 }
+
+function CargarTarea(){
+    const tareaGuardada = localStorage.getItem(LOCAL_STORAGE_KEY);  
+    if(tareaGuardada){
+        tareas.value = tareaGuardada;
+    }   
+}
+CargarTarea();  
+
+
 
 if(Guardar){
     Guardar.addEventListener("click", GuardarTarea);
